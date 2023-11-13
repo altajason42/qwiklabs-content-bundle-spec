@@ -345,15 +345,65 @@ TODO: add documentation
 
 ### `<ql-multiple-choice-probe>`
 
-TODO: add documentation
+Probes are single-question "quizzes" embedded in labs. They give the learner the ability to check their understanding in a low-stakes context as they learn the material. Probes are defined with custom HTML tags. Note that they will only render in QwikLabs - they will not be visible in any standard Markdown viewer, since they require special JS to render. Also note that there is currently a limit to the number of probes in a single lab which is 16.
+
+Multiple Choice:
+Details:
+
+Attribute	Type	Required	Description
+stem	string	true	The probe's question stem.
+optionTitles	JSON string array	true	The titles of all of the options the user can potentially choose (i.e. the distractors and the answer).
+answerIndex	integer	true	The answerIndex of the selection for the correct answer. Remember, this array starts at "0".
+shuffle	boolean	false	Whether to shuffle the answer options each time the page is loaded.
+Source:
+
+<ql-multiple-choice-probe stem="Which is the best search engine?"
+                          optionTitles='[
+                            "DuckDuckGo",
+                            "AskJeeves",
+                            "Google Search",
+                            "Bing"
+                          ]'
+                          answerIndex="2"
+                          shuffle>
+</ql-multiple-choice-probe>
 
 ### `<ql-multiple-select-probe>`
 
-TODO: add documentation
+Multiple Select:
+Details:
+
+Attribute	Type	Required	Description
+stem	string	true	The probe's question stem.
+optionTitles	JSON string array	true	The titles of all of the options the user can potentially choose (i.e. the distractors and the answer).
+answerIndices	JSON integer array	true	The answerIndex of the answers of all of the answers in the options. Remember that this array starts at "0".
+shuffle	boolean	false	Whether to shuffle the answer options each time the page is loaded.
+Source:
+
+<ql-multiple-select-probe stem="Who are the greatest rappers of all time?"
+                          optionTitles='[
+                            "Nas",
+                            "Jay-Z",
+                            "Big Bird",
+                            "The Notorious B.I.G."
+                          ]'
+                          answerIndices='[0, 1, 3]'
+                          shuffle>
+</ql-multiple-select-probe>
 
 ### `<ql-true-false-probe>`
 
-TODO: add documentation
+True / False:
+Details:
+
+Attribute	Type	Required	Description
+stem	string	true	The probe's question stem.
+answer	boolean	true	The true/false answer - 'true' for true, otherwise false.
+Source:
+
+<ql-true-false-probe stem="The best kind of bear is the black bear."
+                     answer="true">
+</ql-true-false-probe>
 
 ### `<ql-stem>`
 
